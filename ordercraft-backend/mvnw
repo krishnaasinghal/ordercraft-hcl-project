@@ -1,0 +1,16 @@
+#!/bin/sh
+# Maven Wrapper for Linux/macOS
+MAVEN_HOME="$HOME/.m2/wrapper/dists/apache-maven-3.9.6"
+
+if [ -f "$MAVEN_HOME/bin/mvn" ]; then
+    exec "$MAVEN_HOME/bin/mvn" "$@"
+fi
+
+echo "[OrderCraft] Downloading Apache Maven 3.9.6..."
+mkdir -p "$HOME/.m2/wrapper/dists"
+curl -sSL "https://repo.maven.apache.org/maven2/org/apache/maven/apache-maven/3.9.6/apache-maven-3.9.6-bin.zip" -o "/tmp/apache-maven-3.9.6-bin.zip"
+unzip -q "/tmp/apache-maven-3.9.6-bin.zip" -d "$HOME/.m2/wrapper/dists"
+rm -f "/tmp/apache-maven-3.9.6-bin.zip"
+chmod +x "$MAVEN_HOME/bin/mvn"
+
+exec "$MAVEN_HOME/bin/mvn" "$@"

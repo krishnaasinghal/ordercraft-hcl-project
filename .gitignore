@@ -1,0 +1,18 @@
+# Java/Maven
+ordercraft-backend/target/
+.mvn/timing.properties
+
+# Angular/Node
+ordercraft-frontend/node_modules/
+ordercraft-frontend/dist/
+ordercraft-frontend/.angular/
+
+# IDE and OS
+.idea/
+*.iml
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+*.swp
+.DS_Store
+Thumbs.db
